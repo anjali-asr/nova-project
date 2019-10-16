@@ -1,4 +1,5 @@
 const { Products } = require('../model/product.model');
+const {Categories} = require('../../category/model/category.model');
 const { msg } = require('../../../messages/message');
 const _ = require('lodash');
 
@@ -28,6 +29,14 @@ exports.getProductList = async (req) => {
     }]);
 
 
+};
+
+//get list of products by categry id
+exports.productListByCategory = async (id) => {  //here "id" is category _id
+    let res = await Categories.findById(id).lean().populate("products");
+    if (!res) msg.notExist;
+    let result = res.products;
+    return result;
 };
 
 //Get product all/by id

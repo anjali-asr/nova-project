@@ -1,4 +1,4 @@
-const { addCategory, addProdInCategory, productListByCategory } = require('../business/category.business');
+const { addCategory, addProdInCategory, getCategory,  deleteCategory} = require('../business/category.business');
 
 exports.addCategory = async (req, res) => {
     try {
@@ -20,9 +20,19 @@ exports.addProdInCategory = async (req, res) => {
     }
 };
 
-exports.productListByCategory = async (req, res) => {
+exports.getCategory = async (req, res) => {
     try {
-        let r = await productListByCategory(req.query.id);
+        let r = await getCategory(req.query.id);
+        res.status(200).send(r);
+    } catch (err) {
+        console.log("error is " + err);
+        res.status(400).send(err);
+    }
+};
+
+exports.deleteCategory = async (req, res) => {
+    try {
+        let r = await deleteCategory(req.query.id);
         res.status(200).send(r);
     } catch (err) {
         console.log("error is " + err);
