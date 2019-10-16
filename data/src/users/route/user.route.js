@@ -3,7 +3,6 @@ const express = require("express");
 const route = express.Router();
 const multer = require("multer");
  
-
 var storage = multer.diskStorage({ 
   //dfsdfdf
     destination: (req, file, cb) => {
