@@ -3,8 +3,11 @@ const mongoose = require("mongoose");
 const categorySchema = new mongoose.Schema({
     name: String,
     description: String,
-    products: [mongoose.Schema.prototype.ObjectId]
-}, 
+    products: [{
+        type : mongoose.Schema.prototype.ObjectId,
+        ref : "Products"
+    }]
+},
     {
         versionKey: false
     }

@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 let productSchema = new mongoose.Schema({
     name: String,
+    description:String,
     images: Array,
-    // category: mongoose.Schema.Types.ObjectId,
-    category: String,
+    // category: String,
     mrp : Number,
     vat: Number,
     totalPrice : Number,
