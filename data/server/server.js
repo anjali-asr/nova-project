@@ -4,9 +4,10 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 
 const userRoute = require('../src/users/route/user.route');
-const productRout = require('../src/products/route/product.route');
-const categoryRout = require('../src/category/route/category.route');
-const cartRout = require('../src/cart/route/cart.route');
+const productRoute = require('../src/products/route/product.route');
+const categoryRoute = require('../src/category/route/category.route');
+const cartRoute = require('../src/cart/route/cart.route');
+const discoRoute = require('../src/discount/route/discount.route');
 
 
 app.use(bodyParser.json());
@@ -15,9 +16,10 @@ app.use(express.static('public'));
 
 
 app.use('/api/user', userRoute);
-app.use('/api/product', productRout);
-app.use('/api/category', categoryRout);
-app.use('/api/cart', cartRout);
+app.use('/api/product', productRoute);
+app.use('/api/category', categoryRoute);
+app.use('/api/cart', cartRoute);
+app.use('/api/discount', discoRoute);
 
 let url = "mongodb://localhost:27017/helloDB";
 mongoose.connect(url, (error) => {

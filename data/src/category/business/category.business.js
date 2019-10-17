@@ -16,6 +16,14 @@ exports.addProdInCategory = async (data, id) => { //here "id" is category _id
     return res;
 };
 
+//get list of products by categry id
+exports.productListByCategory = async (id) => {  //here "id" is category _id
+    let res = await Categories.findById(id).lean().populate("products");
+    if (!res) msg.notExist;
+    let result = res.products;
+    return result;
+};
+
 //get category by _id
 exports.getCategory = async (id) => {  //here "id" is category _id
     let res = await Categories.findById(id).lean();

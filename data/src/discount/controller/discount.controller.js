@@ -1,8 +1,8 @@
-const { addProduct, getProduct, updateProduct, deleteProduct } = require('../business/product.business');
+const { createDiscount, getDiscount, updateDiscount, deleteDiscount } = require('../business/discount.business');
 
-exports.addProduct = async (req, res) => {
+exports.createDiscount = async (req, res) => {
     try {
-        let r = await addProduct(req.body, req.files);
+        let r = await createDiscount(req.body);
         res.status(200).send(r);
     } catch (err) {
         console.log("error is " + err);
@@ -10,9 +10,9 @@ exports.addProduct = async (req, res) => {
     }
 };
 
-exports.getProduct = async (req, res) => {
+exports.getDiscount = async (req, res) => {
     try {
-        let r = await getProduct(req.query);
+        let r = await getDiscount(req.query);
         res.status(200).send(r);
     } catch (err) {
         console.log("error is " + err);
@@ -20,9 +20,9 @@ exports.getProduct = async (req, res) => {
     }
 };
 
-exports.updateProduct = async (req, res) => {
+exports.updateDiscount = async (req, res) => {
     try {
-        let r = await updateProduct(req.query.id);
+        let r = await updateDiscount(req.body, req.query.id);
         res.status(200).send(r);
     } catch (err) {
         console.log("error is " + err);
@@ -30,9 +30,9 @@ exports.updateProduct = async (req, res) => {
     }
 };
 
-exports.deleteProduct = async (req, res) => {
+exports.deleteDiscount = async (req, res) => {
     try {
-        let r = await deleteProduct(req.query.id);
+        let r = await deleteDiscount(req.query.id);
         res.status(200).send(r);
     } catch (err) {
         console.log("error is " + err);

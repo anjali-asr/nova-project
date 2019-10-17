@@ -8,7 +8,7 @@ let productSchema = new mongoose.Schema({
     mrp: Number,
     vat: Number,
     totalPrice: Number,
-    discount: Number,
+    discount: mongoose.Schema.Types.ObjectId,  //One discount at a time on any product
     totalPayablePrice: Number
 },
     {

@@ -5,7 +5,8 @@ const msg = {
     notAuthenticated: "This is not authenticated user",
     categoryNotAdded: "Category Not created",
     notExist: "Do not Exist",
-    notCreated :"Do not created"
+    notCreated: "Do not created",
+    enterValidId: "Enter a velid id"
 };
 
 module.exports = { msg };

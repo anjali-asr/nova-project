@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+//As its is given that admin can apply discounts to the product, Employee cannot apply discounts
+
 const discountSchema = new mongoose.Schema({
     "code": String,
     "percentDiscount": String,

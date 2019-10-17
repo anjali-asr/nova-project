@@ -1,5 +1,4 @@
 const { Products } = require('../model/product.model');
-const {Categories} = require('../../category/model/category.model');
 const { msg } = require('../../../messages/message');
 const _ = require('lodash');
 
@@ -17,39 +16,23 @@ exports.addProduct = async (data, files) => {
     return result;
 };
 
-//Get product list for manager 
-exports.getProductList = async (req) => {
-    let query = req.query;
-    // if(roleId != 1 || roleId!=2) throw msg.notAuthenticated;
-    let result = await Products.aggregate([{
-        $group: {
-            _id: "$category",
-            category : query.category
-        }
-    }]);
-
-
-};
-
-//get list of products by categry id
-exports.productListByCategory = async (id) => {  //here "id" is category _id
-    let res = await Categories.findById(id).lean().populate("products");
-    if (!res) msg.notExist;
-    let result = res.products;
-    return result;
-};
-
 //Get product all/by id
-exports.getProduct = async (req) => {
-
+exports.getProduct = async (query) => {
+    if ("id" in query) query = { "_id": query.id };
+    let res = await Products.find(query).lean();
+    return res;
 };
 
 //Update product by Admin
-exports.updateProduct = async (req) => {
-
+exports.updateProduct = async (id) => {
+    if (id == undefined || id == null) throw msg.enterValidId;
+    let res = await Products.findByIdAndUpdate(id, { $set: data }, { new: true }).lean();
+    return res;
 };
 
 //delete product 
-exports.deleteProduct = async (req) => {
-
+exports.deleteProduct = async (id) => {
+    if (id == undefined || id == null) throw msg.enterValidId;
+    await Products.findByIdAndDelete(id).lean();
+    return { message: "removed successfully" };
 };
