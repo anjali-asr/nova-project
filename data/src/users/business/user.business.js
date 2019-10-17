@@ -42,7 +42,7 @@ let userLogin = async (req) => {
     return {
         token: await jwtTokenGenerator({ _id: user._id.toString(), roleId: user.roleId, userType: user.userType })
     }
-}
+};
 
 //Get user info
 let getUser = async (req) => {

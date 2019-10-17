@@ -4,12 +4,9 @@ let productSchema = new mongoose.Schema({
     name: String,
     description: String,
     images: Array,
-    // category: String,
-    mrp: Number,
-    vat: Number,
-    totalPrice: Number,
-    discount: mongoose.Schema.Types.ObjectId,  //One discount at a time on any product
-    totalPayablePrice: Number
+    price: Number,
+    perDiscount: Number,   //In percentage
+    // discount: mongoose.Schema.Types.ObjectId,  //One discount at a time on any product
 },
     {
         versionKey: false

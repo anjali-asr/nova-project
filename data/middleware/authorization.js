@@ -16,7 +16,7 @@ exports.adminAuth = async (req, res, next) => {
         if (!userData) return res.status(400).send("Invalild session token");
 
         res.locals.userData = userData;
-        res.locals.tokenInfo = tokenInfo; //store the token info for the further fuse in other routes
+        res.locals.tokenInfo = tokenInfo; //store the token info for the further use in other routes
         next();
     } catch (err) {
         console.log({ err });

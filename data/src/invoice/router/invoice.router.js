@@ -3,9 +3,9 @@ const { adminAuth, managerAuth, commonAuth } = require("../../../middleware/auth
 const express = require("express");
 const route = express.Router();
 
-route.post('/',commonAuth, createInvoice);
+route.post('/', createInvoice);
 route.get('/', getInvoice);
-route.put('/',commonAuth, updateInvoice);
-route.delete('/',commonAuth, deleteInvoice);
+route.put('/', updateInvoice);
+route.delete('/', deleteInvoice);
 
 module.exports = route;

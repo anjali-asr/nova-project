@@ -5,10 +5,10 @@ const express = require("express");
 const route = express.Router();
 
 
-route.post('/',adminAuth, addCategory);
-route.put('/',adminAuth, addProdInCategory);
+route.post('/', addCategory);
+route.put('/', addProdInCategory);
 route.get('/', getCategory);
-route.get('/list',commonAuth, productListByCategory);
-route.delete('/',adminAuth, deleteCategory);
+route.get('/list', productListByCategory);
+route.delete('/', deleteCategory);
 
 module.exports = route;
