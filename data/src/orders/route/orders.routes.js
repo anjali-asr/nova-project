@@ -5,9 +5,9 @@ const express = require("express");
 const route = express.Router();
 
 
-route.post('/', adminAuth, createOrder);
+route.post('/',  createOrder);
 route.get('/',  getOrder);
-route.put('/', adminAuth, updateOrder);
-route.delete('/', adminAuth, deleteOrder);
+route.put('/',  updateOrder);
+route.delete('/', deleteOrder);
 
 module.exports = route;
