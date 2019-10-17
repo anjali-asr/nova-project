@@ -24,8 +24,14 @@ exports.getProduct = async (query) => {
 };
 
 //Update product by Admin
-exports.updateProduct = async (id) => {
+exports.updateProduct = async (id, data, files) => {
     if (id == undefined || id == null) throw msg.enterValidId;
+    if (files) {
+        let imgArr = files.map(a => {
+            return a.path;
+        });
+        data.images = imgArr;
+    };
     let res = await Products.findByIdAndUpdate(id, { $set: data }, { new: true }).lean();
     return res;
 };

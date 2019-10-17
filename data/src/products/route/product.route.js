@@ -14,7 +14,7 @@ var upload = multer({ storage: storage });
 
 route.post('/', upload.array("images"), addProduct);
 route.get('/', getProduct);
-route.put('/', updateProduct);
+route.put('/', upload.array("images"), updateProduct);
 route.delete('/', deleteProduct);
 
 module.exports = route;
