@@ -8,6 +8,7 @@ const productRoute = require('../src/products/route/product.route');
 const categoryRoute = require('../src/category/route/category.route');
 const cartRoute = require('../src/cart/route/cart.route');
 const discoRoute = require('../src/discount/route/discount.route');
+const invoiceRoute = require('../src/invoice/router/invoice.router');
 
 
 app.use(bodyParser.json());
@@ -20,6 +21,8 @@ app.use('/api/product', productRoute);
 app.use('/api/category', categoryRoute);
 app.use('/api/cart', cartRoute);
 app.use('/api/discount', discoRoute);
+app.use('/api/invoice', invoiceRoute);
+
 
 let url = "mongodb://localhost:27017/helloDB";
 mongoose.connect(url, (error) => {
