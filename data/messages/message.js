@@ -4,7 +4,8 @@ const msg = {
     registered: "Successfully registered",
     notAuthenticated: "This is not authenticated user",
     categoryNotAdded: "Category Not created",
-    notExist: "Do not Exist"
+    notExist: "Do not Exist",
+    notCreated :"Do not created"
 };
 
 module.exports = { msg };
