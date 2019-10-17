@@ -5,10 +5,11 @@ let orderSchema = new mongoose.Schema({
     user: mongoose.Schema.Types.ObjectId,
     discount: Number,
     vat: Number,
+    totalMrp: Number,
     subTotal: Number,
-    total: Number,  //final payable amount
+    totalPayableAmount: Number,  //final payable amount
 });
 
-let Order = mongoose.model("Order", orderSchema);
+let Orders = mongoose.model("Orders", orderSchema);
 
-module.exports = { Order };
+module.exports = { Orders };

@@ -9,7 +9,7 @@ const categoryRoute = require('../src/category/route/category.route');
 const cartRoute = require('../src/cart/route/cart.route');
 const discoRoute = require('../src/discount/route/discount.route');
 const invoiceRoute = require('../src/invoice/router/invoice.router');
-
+const orderRoute = require('../src/orders/route/orders.routes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,6 +22,7 @@ app.use('/api/category', categoryRoute);
 app.use('/api/cart', cartRoute);
 app.use('/api/discount', discoRoute);
 app.use('/api/invoice', invoiceRoute);
+app.use('/api/order', orderRoute);
 
 
 let url = "mongodb://localhost:27017/helloDB";

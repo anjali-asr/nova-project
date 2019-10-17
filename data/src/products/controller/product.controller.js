@@ -22,7 +22,7 @@ exports.getProduct = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
     try {
-        let r = await updateProduct(req.query.id, req.body, req.files);
+        let r = await updateProduct(req.query.id, req.body);
         res.status(200).send(r);
     } catch (err) {
         console.log("error is " + err);
